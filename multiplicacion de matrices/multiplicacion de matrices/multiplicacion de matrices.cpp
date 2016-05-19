@@ -2,9 +2,10 @@
 //
 
 #include "stdafx.h"
-#define VALOR_A 100
-#define VALOR_B 200
-#define VALOR_C 300
+//de la operacion con matrices A*B=C
+#define VALOR_A 100 //numero de filas de la matriz A y C.
+#define VALOR_B 200	//numero de columnas de la matriz A y numero de filas de la matriz B.
+#define VALOR_C 300 //numero de columnas de la matriz B y C.
 
 void multiplicar(int **mA, int **mB, int **mC, int m, int n, int p)
 {
@@ -22,13 +23,27 @@ void multiplicar(int **mA, int **mB, int **mC, int m, int n, int p)
 
 int main()
 {
-	//hacer lo que haga falta
-	int **a;
+	//iniciando matrices
+	int **a,**b,**c;
 	a = new int*[VALOR_A];
 	for (int i = 0; i < VALOR_A; i++)
 	{
 		a[i] = new int[VALOR_B];
 	}
+	b = new int*[VALOR_B];
+	for (int i = 0; i < VALOR_B; i++)
+	{
+		b[i] = new int[VALOR_C];
+	}
+	c = new int*[VALOR_A];
+	for (int i = 0; i < VALOR_A; i++)
+	{
+		c[i] = new int[VALOR_C];
+	}
+
+	//multiplicacion normal
+	multiplicar(a, b, c, VALOR_A, VALOR_B, VALOR_C);
+
     return 0;
 }
 

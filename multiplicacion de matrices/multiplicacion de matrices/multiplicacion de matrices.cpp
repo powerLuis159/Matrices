@@ -21,6 +21,21 @@ void multiplicar(int **mA, int **mB, int **mC, int m, int n, int p)
 	}
 }
 
+void multiplicar2(int **mA, int **mB, int **mC, int m, int n, int p)
+{
+	for (int k = 0; k < p; k++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			for (int i = 0; i < m; i++)
+			{
+				mC[i][k] += mA[i][j] * mB[j][k];
+			}
+		}
+	}
+}
+
+
 int main()
 {
 	//iniciando matrices

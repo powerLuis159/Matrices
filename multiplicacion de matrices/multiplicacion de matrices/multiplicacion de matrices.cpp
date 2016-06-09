@@ -74,8 +74,8 @@ int main()
 
 	//multiplicacion normal
 	//multiplicar(a, b, c, VALOR_A, VALOR_B, VALOR_C);
-	//multiplicar2(a, b, c, VALOR_A, VALOR_B, VALOR_C);
-
+	multiplicar2(a, b, c, VALOR_A, VALOR_B, VALOR_C);
+	multiplicar3(a, b, c, VALOR_A, VALOR_B, VALOR_C);
 
     return 0;
 }

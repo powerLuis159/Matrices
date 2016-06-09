@@ -2,6 +2,7 @@
 //
 
 #include "stdafx.h"
+#include <iostream>
 //de la operacion con matrices A*B=C
 #define VALOR_A 1000 //numero de filas de la matriz A y C.
 #define VALOR_B 1200	//numero de columnas de la matriz A y numero de filas de la matriz B.
@@ -9,6 +10,7 @@
 
 void multiplicar(int **mA, int **mB, int **mC, int m, int n, int p)
 {
+
 	for (int i = 0; i < m; i++)
 	{
 		for (int j = 0; j < n; j++)
@@ -35,6 +37,20 @@ void multiplicar2(int **mA, int **mB, int **mC, int m, int n, int p)
 	}
 }
 
+void multiplicar3(int **mA, int **mB, int **mC, int m, int n, int p)
+{
+#pragma omp parallel for
+	for (int k = 0; k < p; k++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			for (int i = 0; i < m; i++)
+			{
+				mC[i][k] += mA[i][j] * mB[j][k];
+			}
+		}
+	}
+}
 
 int main()
 {
@@ -57,9 +73,10 @@ int main()
 	}
 
 	//multiplicacion normal
-	multiplicar(a, b, c, VALOR_A, VALOR_B, VALOR_C);
-	multiplicar2(a, b, c, VALOR_A, VALOR_B, VALOR_C);
-	
+	//multiplicar(a, b, c, VALOR_A, VALOR_B, VALOR_C);
+	//multiplicar2(a, b, c, VALOR_A, VALOR_B, VALOR_C);
+
+
     return 0;
 }
 
